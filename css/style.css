@@ -1,0 +1,15 @@
+.formcontainer{
+  border: thick double #32a1ce !important;
+  margin: 41px 111px !important;
+  width: 73% !important;
+}
+.bounce-img { overflow: auto;
+     margin-left: auto; 
+     margin-right: auto;
+     -webkit-animation: action 1s infinite  alternate; 
+     animation: action 1s infinite  alternate; }
+
+     @keyframes fa-spin { 0% { -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(359deg);
+        transform: rotate(359deg); } }

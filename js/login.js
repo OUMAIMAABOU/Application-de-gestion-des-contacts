@@ -9,7 +9,7 @@ function validation(){
     if(username.value==""  ){
         username.style.borderColor='red';
         username.style.borderWidth='3px'
-        img.innerHTML='<img src="img/1200px-OOjs_UI_icon_error-destructive.svg.png" style=" POSITION: RELATIVE;bottom: 46px; left: 404px; width:39px;">'
+        img.innerHTML='<img src="img/error.svg.png" style=" POSITION: RELATIVE;bottom: 46px; left: 404px; width:39px;">'
         idemail.innerHTML='fill the username Please!'
         return false
     }else if(username.value!=""){
@@ -22,7 +22,7 @@ function validation(){
     if(!validateUsername(username.value)){
         username.style.borderColor='red';
         username.style.borderWidth='3px';
-        img.innerHTML='<img src="img/1200px-OOjs_UI_icon_error-destructive.svg.png" style=" POSITION: RELATIVE;bottom: 46px; left: 404px; width: 39px">'
+        img.innerHTML='<img src="img/error.svg.png" style=" POSITION: RELATIVE;bottom: 46px; left: 404px; width: 39px">'
         idemail.innerHTML="The username should contain only numbers and letters";
         return false
     }
