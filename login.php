@@ -13,12 +13,15 @@
   <?php include 'navlogin.php'?>
 
      <div class="row formcontainer">
+
       <div class="col-lg-4  col-md-12 p-0">
       <img src="img/41889883.jpg" width="450px">
-          </div>
+      </div>
+
       <div class="col-lg-5 col-md-12">
       <form method="post" action="" onsubmit="return validation()">
               <h3 >Authenticate</h3>
+              
               <div>
                 <input type="text" name="username" id="username" placeholder="username" style=" padding: 11px ;width: 447px;" >
                 
@@ -32,12 +35,13 @@
                 <span id="pass" style="color:red; font-weight: bold; "></span>
 
             </div >
-            <input type="submit" name="Login" value="login" class="   btn-primary mt-5 " style=" width: 447px;" >
+            <input type="submit" name="Login" id ="btnsub" value="login" class="   btn-primary mt-5 " style=" width: 447px;" >
             <div>No account? <a href="#">Sign up</a> here.</div>
           </form>
 
       </div>
-  </div>
+      
+     </div>
   
   <script src="js/login.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2X.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
