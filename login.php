@@ -1,4 +1,12 @@
+<?php
+require_once('dbconnect.php');
+require_once('contact.php');
+
+
+
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +27,7 @@
       </div>
 
       <div class="col-lg-5 col-md-12">
-      <form method="post" action="" onsubmit="return validation()">
+      <form method="post" action="" onkeyup="return validation()">
               <h3 >Authenticate</h3>
               
               <div>

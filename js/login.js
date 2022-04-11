@@ -6,6 +6,8 @@ var img2 =document.getElementById('img2')
 var img22 =document.getElementById('img22')
 var pass2 =document.getElementById('pass2')
 var passwordver=document.getElementById('passwordver');
+document.getElementById('btnsub').style.display='block';
+
 
 function validation(){
     if(username.value==""  ){
@@ -29,7 +31,6 @@ function validation(){
         return false
     }
    
-
 
     if(password.value=="" ){
         password.style.borderColor='red';
@@ -101,7 +102,11 @@ function validation(){
    
 
 
-    else return true
+    else{
+        return true
+        document.getElementById('btnsub').style.display='none';
+
+    } 
 }
 function validateUsername(username) 
     {
