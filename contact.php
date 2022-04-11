@@ -9,16 +9,12 @@ class contact extends Dbconnect{
     public $id;
 
     public function Select(){
-        $req="select * from contacts where  ";
-
-        $result= $this-> GetData($req);
+        $req="select * from contacts where id =:id";
+        $result= $this->GetData($req);
       
-          $result->execute([
-              ":username" => $this->username,
-              ":password" => $this->password
-         ] );
-        $res=$result->fetch(PDO::FETCH_ASSOC);
-        return $res;
+          $result->execute([":id" => $this->id ]);
+        $res[]=$result->fetch(PDO::FETCH_ASSOC);
+       return $res;
      
     }
   
@@ -31,7 +27,7 @@ class contact extends Dbconnect{
             ":email" => $this->email,
             ":adress" => $this->adress,
             ":id" => $this->id
-       ] );
+            ] );
      
     }
     public function GetName()
@@ -82,6 +78,6 @@ class contact extends Dbconnect{
   
 // $user = new contact();
 
-// echo $user->select();
+// $user->select(1);
 
 ?>

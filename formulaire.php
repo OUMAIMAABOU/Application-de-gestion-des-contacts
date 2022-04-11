@@ -1,3 +1,23 @@
+<?php 
+include('contact.php');
+
+  
+  $con = new contact();
+  $con->SetName($_POST['nom']);
+  $con->SetTelephone($_POST['phone']);
+  $con->SetEmai($_POST['email']);
+  $con->SetAdress($_POST['adres']);
+  $con->SetId(1);
+
+  $con->Select()
+  
+  
+    
+ 
+  
+  
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
