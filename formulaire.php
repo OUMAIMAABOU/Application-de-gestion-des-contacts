@@ -1,25 +1,9 @@
 <?php 
 include('contact.php');
-
-  
+session_start();
   $con = new contact();
-  // $con->SetName($_POST['nom']);
-  // $con->SetTelephone($_POST['phone']);
-  // $con->SetEmai($_POST['email']);
-  // $con->SetAdress($_POST['adres']);
-  $con->SetId(1);
-
+  $con->SetId($_SESSION['id']);
   $res=$con->Select();
-
- 
-
-  
-  
-  
-    
- 
-  
-  
 
 ?>
 <!DOCTYPE html>
@@ -33,17 +17,16 @@ include('contact.php');
         <!-- <link rel="stylesheet" href=".css"> -->
     </head>
     <body>
-
-      <header style="border: solid 40px rgb(79, 76, 76);">
-        
-      </header>
+    <?php include('nav.php');?>
+      
        
-        <div class="container " style="margin-left: 16%;">
-            <div class="table-responsive">
+        <div class="container mt-5 " style="margin-left: 16%; ">
+            <div class="table-responsive ">
                 <table class="table align-middle">
                   <thead>
                     <tr>
                       <th>Contact list:</th>
+                      <th><button class="btn-primary"> ADD</button></th>
                     
                     </tr>
                   </thead>

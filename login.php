@@ -37,7 +37,7 @@ $user->SetPassword($_POST['password']);
 
 </head>
 <body>
-<?php include 'navlogin.php'?>
+<?php include('nav.php');?>
 <div  class="d-flex justify-content-center align-items-center h-100">
       <div class=" rounded-3 ">
       <form method="POST" action="" onsubmit="return validation()">

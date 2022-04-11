@@ -1,5 +1,6 @@
 <?php 
 include('contact.php');
+  session_start();
 if (isset($_POST['save'])){
   
   $con = new contact();
@@ -7,7 +8,7 @@ if (isset($_POST['save'])){
   $con->SetTelephone($_POST['phone']);
   $con->SetEmai($_POST['email']);
   $con->SetAdress($_POST['adres']);
-  $con->SetId(1);
+  $con->SetId($_SESSION['id']);
 
    if($con->Add()){
   

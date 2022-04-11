@@ -15,7 +15,7 @@
      <div class=" row justify-content-center px-3 col-6" style="margin-top: 170px;">
      
          <h1 style="font-size: 68px;">Hello!</h1>
-         <p class="fs-3"><a href="#">Sign up</a> to start creating your contacts list</p>
+         <p class="fs-3"><a href="signUp.php">Sign up</a> to start creating your contacts list</p>
          <p class="fs-3">Already have an account?<a href="login.php">Login here</a> </p>
    
      </div></div>

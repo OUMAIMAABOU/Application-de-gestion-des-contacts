@@ -5,8 +5,7 @@ $user = new Utilisateur();
 
 if (isset($_POST['signup'])){
   $user->SetName($_POST['username']);
-$user->SetPassword($_POST['password']);
-  // $password = password_hash($user->GetPassword(), PASSWORD_DEFAULT);
+  $user->SetPassword($_POST['password']);
   if($user->add()){
     header("Location: login.php");
   }

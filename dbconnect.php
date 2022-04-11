@@ -25,21 +25,8 @@
      }catch (Exception $ex) {echo $ex->getMessage();}
     }
    
-    // public function GetData($req)
-    // {
-    //  try{
-    //   $sql=$this->connection()->prepare($req);
-    //   if($sql) echo 'bien ajoute';
-
-    //   else echo 'cant find';
-
-      
-    
-    //   }catch (Exception $ex) {
-    //   echo $ex->getMessage();}
-    // }
   
 }
-$conn=new Dbconnect();
-$conn->connection();
+// $conn=new Dbconnect();
+// $conn->connection();
 ?> 
