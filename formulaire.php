@@ -54,14 +54,12 @@ include('contact.php');
                      <th><?= $rows['email']; ?></th>
                      <td><?= $rows['tele']; ?></td>
                      <td><?= $rows['adress']; ?></td>
-                     <td> <button class="btn btn-light"><a href="">Edit</a></button>
-                        <button class="btn btn-light" ><a href="">Delete</a></button></td>
+                     <td> <button class="btn btn-light"><a href="delete.php?id=<?= $rows['idcontact']?>&req=update">Edit</a></button>
+                        <button class="btn btn-light" ><a href="delete.php?id=<?= $rows['idcontact']?>&req=delete"> Delete</a></button></td>
                     </tr>
                     <?php } ;?>
                     <tr class="align-bottom">
                     
-                        <button class="btn btn-light"><a href="">Edit</a></button>
-                        <button class="btn btn-light" ><a href="">Delete</a></button>
                         </td>
                     </tr>
                    

@@ -1,3 +1,19 @@
+<?php
+session_start();
+include('user.php');
+$user = new Utilisateur();
+
+if (isset($_POST['signup'])){
+  $user->SetName($_POST['username']);
+$user->SetPassword($_POST['password']);
+  // $password = password_hash($user->GetPassword(), PASSWORD_DEFAULT);
+  if($user->add()){
+    header("Location: login.php");
+  }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,40 +31,41 @@
         </form>
     </nav>
 
-    <div  class="container-fluid">
-      <div class="row justify-content-center mt-5">
-          <div class=" col-sm-12 col-6 col-lg-3 mt-5"> 
-            <h2 class="text-center"> Sign up</h2>
+    <div  class="d-flex justify-content-center align-items-center h-100">
+      <div class=" rounded-3 ">
+            <div class="text-center m-3">
+               <h2 > Sign up</h2>
+            </div>
             <form method="post" action="" onsubmit="return validation()"> 
                 <div class="mb-3 ">
                   <label for="exampleInputEmail1" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" placeholder="Username" style=" padding: 11px ;width: 447px;" >
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" style=" padding: 11px ;width: 447px;" >
                   <p id="img" style="margin-bottom: -1rem;"></p>
                   <span id="idemail" style="color:red; font-weight: bold;"></span>
                 </div>
                  <div class="mb-3 ">
                     <label for="exampleInputEmail1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" style=" padding: 11px ;width: 447px;" >
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" style=" padding: 11px ;width: 447px;" >
                     <p id="img2"  style="margin-bottom: -1rem;"></p>
                     <span id="pass" style="color:red; font-weight: bold; "></span>
                   </div>
                  <div class="mb-3 ">
                   <label for="exampleInputPassword1" class="form-label">Password verify</label>
-                  <input type="password" class="form-control" id="passwordver" placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
+                  <input type="password" class="form-control" id="passwordver" name="password" placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
                   <p id="img22"  style="margin-bottom: -1rem;"></p>
                   <span id="pass2" style="color:red; font-weight: bold; "></span>
                 </div>
        
-                 <button type="submit" class="btn btn-primary mt-5"  style=" width: 447px;">Sign up</button>
+                 <button type="submit" class="btn btn-primary mt-5"  name ="signup" style=" width: 447px;">Sign up</button>
                  <div class="mt-3 mb-3 text-center">
                     <span class="text-muted">
                    Already have an account?
                     </span>
-                     <a class="text-primary text-decoration-underline" href="index.php"> <span >Login </span></a> 
+                     <a class="text-primary text-decoration-underline" href="login.php"> <span >Login </span></a> 
                      her
                   </div>
             </form>
-          </div>
+         
       </div>  
     </div>
 

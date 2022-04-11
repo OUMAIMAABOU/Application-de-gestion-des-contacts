@@ -7,6 +7,8 @@ class contact extends Dbconnect{
     public $email;
     public $adress;
     public $id;
+    public $idcontact;
+
 
     public function Select(){
         $req="select * from contacts where id =?";
@@ -29,6 +31,11 @@ class contact extends Dbconnect{
              $this->id
             ] );
      
+    }
+    public function Delet(){
+        $req ="delete from contacts where idcontact  =?";
+        $exc =$this->GetData($req);
+        $exc->execute([$this->idcontact]);
     }
     public function GetName()
     {
@@ -69,6 +76,14 @@ class contact extends Dbconnect{
      public function SetId($id)
     {
        $this->id=$id;
+    }
+    public function GetIdcontact()
+    {
+        return $this->adress;
+    }
+     public function SetIdcontact($idcontact)
+    {
+       $this->idcontact=$idcontact;
     }
 
 
