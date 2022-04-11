@@ -3,20 +3,24 @@ include('contact.php');
 
   
   $con = new contact();
-  $con->SetName($_POST['nom']);
-  $con->SetTelephone($_POST['phone']);
-  $con->SetEmai($_POST['email']);
-  $con->SetAdress($_POST['adres']);
+  // $con->SetName($_POST['nom']);
+  // $con->SetTelephone($_POST['phone']);
+  // $con->SetEmai($_POST['email']);
+  // $con->SetAdress($_POST['adres']);
   $con->SetId(1);
 
-  $con->Select()
+  $res=$con->Select();
+
+ 
+
+  
   
   
     
  
   
   
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,20 +49,17 @@ include('contact.php');
                   </thead>
                   <tbody>
                     <tr>
-                     <th>Alonzo E Barber</th>
-                     <td>alonzo@barber.com</td>
-                     <td>818-740-3656</td>
-                     <td>848 Glendale Avenue Los 
-                         Angeles California 90017</td>
+                      <?php foreach($res as $rows){?>
+                    <td><?= $rows['nom']; ?></td>
+                     <th><?= $rows['email']; ?></th>
+                     <td><?= $rows['tele']; ?></td>
+                     <td><?= $rows['adress']; ?></td>
                      <td> <button class="btn btn-light"><a href="">Edit</a></button>
                         <button class="btn btn-light" ><a href="">Delete</a></button></td>
                     </tr>
+                    <?php } ;?>
                     <tr class="align-bottom">
-                     <th>Annmarie N Reeves</th>
-                     <td>annemarie@barber.com</td>
-                     <td>413-626-0746/td>
-                     <td>848 Glendale Avenue Los Angeles California 90017</td>
-                     <td>
+                    
                         <button class="btn btn-light"><a href="">Edit</a></button>
                         <button class="btn btn-light" ><a href="">Delete</a></button>
                         </td>

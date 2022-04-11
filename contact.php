@@ -9,24 +9,24 @@ class contact extends Dbconnect{
     public $id;
 
     public function Select(){
-        $req="select * from contacts where id =:id";
+        $req="select * from contacts where id =?";
         $result= $this->GetData($req);
       
-          $result->execute([":id" => $this->id ]);
-        $res[]=$result->fetch(PDO::FETCH_ASSOC);
-       return $res;
+          $result->execute([$this->id ]);
+       
+       return $result->fetchAll();
      
     }
   
     public function Add(){
-        $req ="insert into contacts(nom, tele,email,adress,id) values (:nom,:tele,:email,:adress,:id) ";
+        $req ="insert into contacts(nom, tele,email,adress,id) values (?,?,?,?,?) ";
         $exc =$this->GetData($req);
         $exc->execute([
-            ":nom" => $this->nom,
-            ":tele" => $this->telephone,
-            ":email" => $this->email,
-            ":adress" => $this->adress,
-            ":id" => $this->id
+             $this->nom,
+            $this->telephone,
+             $this->email,
+             $this->adress,
+             $this->id
             ] );
      
     }
