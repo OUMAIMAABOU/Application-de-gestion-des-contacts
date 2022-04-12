@@ -13,8 +13,7 @@ session_start();
     $con->SetId($_SESSION['id']);
   
      if($con->Add()){
-    
-echo "b1 ajouter";      
+        header("Location: pagecontact.php");
      }else{
       $error = "incorect username or password !!";
         
@@ -71,7 +70,6 @@ Add Contact
                 <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
                 <span id="nomid" style="color:red; font-weight: bold;"></span>
             </div>
-
                 <div class="mb-3"  >
                     <label for="exampleFormControlInput1" class="form-label">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone">
@@ -85,16 +83,11 @@ Add Contact
                     <p id="img3" style="margin-bottom: -1rem;"></p>
                     <span id="mailid" style="color:red; font-weight: bold;"></span>
                 </div>
-                
                 <div class="mb-3" >
                 <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                 <span id="addressid"  class="text-danger"></span>
                 <textarea class="form-control" id="adress" name="adres" rows="3"></textarea>
-                <p id="img4" style="margin-bottom: -1rem;"></p>
-                    <span id="addid" style="color:red; font-weight: bold;"></span>
-                </div>
-                
-               
+                <p id="img4" style="margin-bottom: -1rem;"></p> <span id="addid" style="color:red; font-weight: bold;"></span></div>
                 <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                <button type="submit" name="save" class="btn btn-primary mT-3">Save</button>
@@ -136,7 +129,6 @@ Add Contact
                 </table>
               </div>
         </div>
-     <div id="edite"></div>
     </body>
     <script src="js/validation.js"> </script>
 

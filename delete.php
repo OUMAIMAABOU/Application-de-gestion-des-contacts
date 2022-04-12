@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
     
     if($_GET['req']=='delete'){
      
-        if($con->Delet()) header("Location: formulaire.php");
+        if($con->Delet()) header("Location: pagecontact.php");
         
 
     }else if($_GET['req']=='update'){
@@ -26,7 +26,7 @@ if(isset($_GET['id'])){
           $con->SetTelephone($_POST['phone']);
           $con->SetEmai($_POST['email']);
           $con->SetAdress($_POST['adres']);
-          if($con->update())  header("Location: formulaire.php");
+          if($con->update())  header("Location: pagecontact.php");
       
       }
       $rows=$res[0];?>
