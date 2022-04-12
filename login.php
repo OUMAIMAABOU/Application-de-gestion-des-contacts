@@ -8,17 +8,10 @@ $user = new Utilisateur();
 if (isset($_POST['Login'])){
   $user->SetName($_POST['username']);
 $user->SetPassword($_POST['password']);
-  
-  
-   if($user->login()){
-   
-        header("Location: pageProfile.php");
-    
-  
-    
+ if($user->login()){
+  header("Location: pageProfile.php");
    }else{
     $error = "incorect username or password ";
-      
    }
   
   

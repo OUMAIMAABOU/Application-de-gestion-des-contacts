@@ -26,7 +26,7 @@ session_start();
                   <thead>
                     <tr>
                       <th>Contact list:</th>
-                      <th><button class="btn-primary"> ADD</button></th>
+                      <th><a href="ListContact.php"> <button class="btn-primary" >ADD</button></a></th>
                     
                     </tr>
                   </thead>
@@ -50,6 +50,7 @@ session_start();
                 </table>
               </div>
         </div>
-    
+     <div id="edite"></div>
     </body>
+
 </html>

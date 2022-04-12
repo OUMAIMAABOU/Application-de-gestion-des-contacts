@@ -6,7 +6,7 @@ class Utilisateur extends Dbconnect{
     public $dateinsc;
     public $id;
 
-  
+
     public function add(){
         $req ="insert into comptes (name, password,date_inscription) values (?,?,sysdate())";
         $exc =$this->GetData($req);
@@ -36,29 +36,19 @@ class Utilisateur extends Dbconnect{
        return $result->fetchAll();
      
     }
- public function GetName()
- {
-     return $this->name;
- }
   public function SetName($name)
  {
      $this->name=$name;
  }
 
- public function GetPassword()
- {
-     return $this->password;
- }
+
   public function SetPassword($password)
  {
      $this->password=$password;
  }
     
 
- public function GetId()
-{
-    return $this->id;
-}
+
  public function SetId($id)
 {
     $this->id=$id;

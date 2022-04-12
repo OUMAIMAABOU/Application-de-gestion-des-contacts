@@ -1,27 +1,20 @@
 <?php 
 include('contact.php');
-  session_start();
-if (isset($_POST['save'])){
-  
-  $con = new contact();
-  $con->SetName($_POST['nom']);
-  $con->SetTelephone($_POST['phone']);
-  $con->SetEmai($_POST['email']);
-  $con->SetAdress($_POST['adres']);
-  $con->SetId($_SESSION['id']);
+session_start();
+$con = new contact();
+$con->SetIdcontact($_GET['id']);
 
-   if($con->Add()){
-  
-    header("Location:formulaire.php");
-    
-   }else{
-    $error = "incorect username or password !!";
-      
-   }
-  
-  
+
+$res=$con->Selectone();
+if(isset($_POST['update'])){
+    $con->SetName($_POST['nom']);
+    $con->SetTelephone($_POST['phone']);
+    $con->SetEmai($_POST['email']);
+    $con->SetAdress($_POST['adres']);
+    if($con->update())  header("Location: formulaire.php");
+
 }
-?>
+$rows=$res[0];?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,21 +39,21 @@ if (isset($_POST['save'])){
                 <form class="form-container" action="" method="POST" onsubmit="return validation()">  
                   <div class="mb-3 " style="width: 40%;">
                   <label for="exampleFormControlInput1" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name">
+                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" value="<?php echo $rows['nom']; ?>" />
                   <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
                   <span id="nomid" style="color:red; font-weight: bold;"></span>
                 </div>
 
                     <div class="mb-3"  style="width: 40%;">
                       <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone">
+                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="<?php echo $rows['tele']; ?>" >
                       <p id="img2" style="margin-bottom: -1rem;"></p>
                       <span id="phoneid"style="color:red; font-weight: bold;"></span>
                     </div>
                
                     <div class="mb-3"  style="width: 40%;">
                       <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email"  value="<?php echo $rows['email']; ?>" >
                       <p id="img3" style="margin-bottom: -1rem;"></p>
                       <span id="mailid" style="color:red; font-weight: bold;"></span>
                     </div>
@@ -68,19 +61,18 @@ if (isset($_POST['save'])){
                   <div class="mb-3"  style="width: 40%;">
                     <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                     <span id="addressid"  class="text-danger"></span>
-                    <textarea class="form-control" id="adress" name="adres" rows="3"></textarea>
+                    <input type="text" class="form-control" id="adress" name="adres" rows="3"  value="<?php echo $rows['adress']; ?>" >
                     <p id="img4" style="margin-bottom: -1rem;"></p>
                       <span id="addid" style="color:red; font-weight: bold;"></span>
                   </div>
                  
                   <div class="col-auto">
-                   <button type="submit" name="save" class="btn btn-primary mb-3">Save</button>
+                   <button type="submit" name="update" class="btn btn-primary mb-3">Save</button>
                   </div>
 
               </div>
-
                 </form>         
-                            
+                     
             </div>
         </main>
         <script src="js/validation.js"> </script>

@@ -7,7 +7,7 @@
      private $database = "gestion_contacts_db";
    
 
-    public function connection()
+    protected function connection()
     {
      try
       {
@@ -16,7 +16,7 @@
       }catch (Exception $ex) { echo $ex->getMessage();}
     }
 
-    public function GetData($req){
+    protected function GetData($req){
      try
      {
         $sql=$this->connection()->prepare($req);
