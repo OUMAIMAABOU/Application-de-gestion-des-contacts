@@ -4,20 +4,15 @@ include('user.php');
 
 $error = "";
 $user = new Utilisateur();
-
 if (isset($_POST['Login'])){
   $user->SetName($_POST['username']);
-$user->SetPassword($_POST['password']);
- if($user->login()){
+  $user->SetPassword($_POST['password']);
+  if($user->login()){
   header("Location: pageProfile.php");
-   }else{
+  }else{
     $error = "incorect username or password ";
-   }
-  
-  
+  }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +49,7 @@ $user->SetPassword($_POST['password']);
             <span id="pass" style="color:red; font-weight: bold; "></span>
 
         </div >
-        <button type="submit" name="Login" value="" class="   btn-primary mt-5 " style=" width: 447px;" > Login</button>
+        <button type="submit" name="Login"  id="bntsub"  class="btn-primary mt-5 " style=" width: 447px;" > Login</button>
         <div>No account? <a href="signUp.php">Sign up</a> here.</div>
       </form>
       </div>

@@ -6,7 +6,7 @@ var img2 =document.getElementById('img2')
 var img22 =document.getElementById('img22')
 var pass2 =document.getElementById('pass2')
 var passwordver=document.getElementById('passwordver');
-document.getElementById('btnsub').style.display='block';
+
 
 
 function validation(){
@@ -104,7 +104,6 @@ function validation(){
 
     else{
         return true
-        document.getElementById('btnsub').style.display='none';
 
     } 
 }

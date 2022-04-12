@@ -1,29 +1,26 @@
 <?php
- class Dbconnect{
+class Dbconnect{
 
-     private $host ="localhost";
-     private $username = "root";
-     private $password = "";
-     private $database = "gestion_contacts_db";
-   
-
-    protected function connection()
+  private $host ="localhost";
+  private $username = "root";
+  private $password = "";
+  private $database = "gestion_contacts_db";
+  protected function connection()
+  {
+    try
     {
-     try
-      {
-        $con= new PDO("mysql:host=$this->host; dbname=$this->database" ,$this->username ,$this->password);      
-       return $con;
-      }catch (Exception $ex) { echo $ex->getMessage();}
-    }
+     $con= new PDO("mysql:host=$this->host; dbname=$this->database" ,$this->username ,$this->password);      
+     return $con;
+    }catch (Exception $ex) { echo $ex->getMessage();}
+  }
 
-    protected function GetData($req){
-     try
-     {
-        $sql=$this->connection()->prepare($req);
-     
-      return $sql; 
-     }catch (Exception $ex) {echo $ex->getMessage();}
-    }
+  protected function GetData($req){
+    try
+    {
+    $sql=$this->connection()->prepare($req);
+    return $sql; 
+    }catch (Exception $ex) {echo $ex->getMessage();}
+  }
    
   
 }
