@@ -17,7 +17,7 @@
         </div>
         <div class="d-flex">
             
-          <a href="login.php" class="fs-4 me-5" style="text-decoration: none; ">Logeout</a>
+          <a href="delete.php?&req=logout" class="fs-4 me-5" style="text-decoration: none; ">Logout</a>
 
         </div>
       </div>

@@ -1,6 +1,10 @@
 <?php 
 include('contact.php');
 session_start();
+if(empty($_SESSION["name"]))
+{
+        header('location:login.php');
+    }
   $con = new contact();
   $con->SetId($_SESSION['id']);
   $res=$con->Select();
