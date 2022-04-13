@@ -35,27 +35,27 @@ if (isset($_POST['Login'])){
       <div class="  inner">
       <form method="POST" action="" onsubmit="return validation()">
          
-          <h3 class="text-center mt-5">Authenticate</h3>
+          <h3 class="text-center text-light mt-5">Authenticate</h3>
           <?php if($error != ""){ ?>
                     <div class="alert alert-danger mt-3">
                         <?php echo $error; ?>
                     </div>
                 <?php   $error = null;  } ?>
           <div class="mt-4" >
-            <input type="text" name="username" id="username" placeholder="username" style=" padding: 11px ;width: 447px;" >
+            <input type="text" name="username" id="username" placeholder="username" >
             
             <p id="img" style="margin-bottom: -1rem;"></p>
             <span id="idemail" style="color:red; font-weight: bold;"></span>
           <div>
 
           <div  class="mt-5">
-            <input type="password" name="password" id="password" placeholder="Password" style="  padding: 11px ;width: 447px;" >
+            <input type="password" name="password" id="password" placeholder="Password"  >
             <p id="img2"  style="margin-bottom: -1rem;"></p>
             <span id="pass" style="color:red; font-weight: bold; "></span>
 
         </div >
         <button type="submit" name="Login"  id="bntsub"  > Login</button>
-        <div>No account? <a href="signUp.php">Sign up</a> here.</div>
+        <div class="text-light mt-4">No account? <a href="signUp.php">Sign up</a> here.</div>
       </form>
       </div>
       </div>

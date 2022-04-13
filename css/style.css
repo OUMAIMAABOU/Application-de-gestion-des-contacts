@@ -33,4 +33,36 @@ button {
   button:hover {
    background-color: #34aee29f;
     }
+    input{
+      padding: 11px;
+      width: 447px;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+
+    }
+ 
+    @media (max-width: 400px) {
+     
+    
+      .inner {
+        padding: 27px 20px 37px;
+     }
+   
+    
+     input {
+      padding: 11px;
+      width: 206px;
+  } }
+  @media (max-width: 700) {
+     
+    
+    .inner {
+      padding: 27px 20px 37px;
+   }
+ 
+  
+   input {
+    padding: 11px;
+    width: 300px;
+} }
   

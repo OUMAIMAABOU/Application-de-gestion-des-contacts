@@ -6,24 +6,32 @@ class Utilisateur extends Dbconnect{
  public $dateinsc;
  public $id;
 
-
+ public function getuser(){
+  $req ="select * from comptes where name =?";
+  $result= $this->GetData($req);
+  $result->execute([$this->name]);
+  return $result;
+ }
     public function add()
     {
      try{
+       $numrows=$this->getuser();
+      if($numrows->rowCount()>0){
+        echo "user exist deja";
+      }else{
         $req ="insert into comptes (name, password,date_inscription) values (?,?,sysdate())";
         $exc =$this->GetData($req);
         $this->password = password_hash( $this->password, PASSWORD_DEFAULT);
         $exc->execute([$this->name,$this->password]); 
+      }
+     
       }catch (Exception $ex) { echo $ex->getMessage();}  
     }
    public function login()
    {
     try{
-    $req ="select * from comptes where name =?";
-    $result= $this->GetData($req);
-    $result->execute([$this->name]);
-    $res=$result->fetch(PDO::FETCH_ASSOC);
-
+    $numrows=$this->getuser();
+    $res=$numrows->fetch(PDO::FETCH_ASSOC);
     if(password_verify($this->password,$res['password'])==true)
     {
         $_SESSION['name'] = $res['name'];
