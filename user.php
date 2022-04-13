@@ -17,12 +17,14 @@ class Utilisateur extends Dbconnect{
      try{
        $numrows=$this->getuser();
       if($numrows->rowCount()>0){
-        echo "user exist deja";
+        return false;
+        // $_SESSION['exsit']= "user exist deja";
       }else{
         $req ="insert into comptes (name, password,date_inscription) values (?,?,sysdate())";
         $exc =$this->GetData($req);
         $this->password = password_hash( $this->password, PASSWORD_DEFAULT);
         $exc->execute([$this->name,$this->password]); 
+        return true;
       }
      
       }catch (Exception $ex) { echo $ex->getMessage();}  

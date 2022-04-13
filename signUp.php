@@ -1,13 +1,23 @@
 <?php
 session_start();
 include('user.php');
+$errmsg="";
+$username=null;
+$pass=null;
+$cpass=null;
 $user = new Utilisateur();
 
 if (isset($_POST['signup'])){
+  $username=$_POST['username'];       
+  $pass= $_POST['password'];
+  $cpass= $_POST['cpassword'];
   $user->SetName($_POST['username']);
   $user->SetPassword($_POST['password']);
   if($user->add()){
     header("Location: login.php");
+  }else{
+   $errmsg="Compte existe deja";
+  
   }
 
 }
@@ -37,22 +47,27 @@ if (isset($_POST['signup'])){
             <div class="text-center m-3 text-light">
                <h2> Sign up</h2>
             </div>
+            <?php if($errmsg != ""){ ?>
+                    <div class="alert alert-danger mt-3">
+                        <?php echo $errmsg; ?>
+                    </div>
+                <?php   $errmsg = null;  } ?>
             <form method="post" action="" onsubmit="return validation()"> 
                 <div class="mb-3 ">
                   <label for="username" class="form-label mt-4" style="color: #fff;font-size: large;">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" style=" padding: 11px ;width: 447px;" >
+                  <input type="text" class="form-control" id="username" name="username" value="<?php echo  $username;?>" placeholder="Username" style=" padding: 11px ;width: 447px;" >
                   <p id="img" style="margin-bottom: -1rem;"></p>
                   <span id="idemail" style="color:red; font-weight: bold;"></span>
                 </div>
                  <div class="mb-3 ">
                     <label for="password" class="form-label mt-4" style="color: #fff;font-size:large;">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" style=" padding: 11px ;width: 447px;" >
+                    <input type="password" class="form-control" id="password" name="password" value="<?php echo  $pass;?>" placeholder="Password" style=" padding: 11px ;width: 447px;" >
                     <p id="img2"  style="margin-bottom: -1rem;"></p>
                     <span id="pass" style="color:red; font-weight: bold; "></span>
                   </div>
                  <div class="mb-3 ">
                   <label for="password" class="form-label mt-4" style="color: #fff;font-size: large;">Password verify</label>
-                  <input type="password" class="form-control" id="passwordver" name="password" placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
+                  <input type="password" class="form-control" id="passwordver" name="cpassword" value="<?php echo  $cpass;?>"placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
                   <p id="img22"  style="margin-bottom: -1rem;"></p>
                   <span id="pass2" style="color:red; font-weight: bold; "></span>
                 </div>

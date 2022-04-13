@@ -3,8 +3,12 @@ session_start();
 include('user.php');
 
 $error = "";
+$username=null;
+$pass=null;
 $user = new Utilisateur();
 if (isset($_POST['Login'])){
+  $username=$_POST['username'];
+  $pass=$_POST['password'];
   $user->SetName($_POST['username']);
   $user->SetPassword($_POST['password']);
   if($user->login()){
@@ -42,18 +46,22 @@ if (isset($_POST['Login'])){
                     </div>
                 <?php   $error = null;  } ?>
           <div class="mt-4" >
-            <input type="text" name="username" id="username" placeholder="username" >
+            <input type="text" class="inputbtn" name="username" id="username" value="<?php echo  $username;?>" placeholder="username" >
             
             <p id="img" style="margin-bottom: -1rem;"></p>
             <span id="idemail" style="color:red; font-weight: bold;"></span>
           <div>
 
           <div  class="mt-5">
-            <input type="password" name="password" id="password" placeholder="Password"  >
+            <input type="password" class="inputbtn" name="password" id="password" value="<?php echo  $pass;?>" placeholder="Password"  >
             <p id="img2"  style="margin-bottom: -1rem;"></p>
             <span id="pass" style="color:red; font-weight: bold; "></span>
+           </div >
+          <div class="mt-5">  
+            <input type="checkbox" onclick="myFunction()"  />  
+            <label for="remember-me">Show me password </label>  
+          </div> 
 
-        </div >
         <button type="submit" name="Login"  id="bntsub"  > Login</button>
         <div class="text-light mt-4">No account? <a href="signUp.php">Sign up</a> here.</div>
       </form>

@@ -107,6 +107,7 @@ function validation(){
 
     } 
 }
+
 function validateUsername(username) 
     {
         var re = /^[a-zA-Z]{3,20}$/;

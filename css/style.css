@@ -33,7 +33,7 @@ button {
   button:hover {
    background-color: #34aee29f;
     }
-    input{
+    .inputbtn{
       padding: 11px;
       width: 447px;
       border: 1px solid #ced4da;
