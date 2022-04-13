@@ -103,7 +103,7 @@ if(isset($_GET['id'])){
 
   if($_GET['req']=='logout'){
     session_destroy();
- header("Location: pagecontact.php");
+ header("Location: login.php");
     
 
 }

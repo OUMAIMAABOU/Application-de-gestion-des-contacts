@@ -22,7 +22,7 @@ if (isset($_POST['Login'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark justify-content-between">
@@ -32,7 +32,7 @@ if (isset($_POST['Login'])){
         </form>
       </nav> 
 <div  class="d-flex justify-content-center align-items-center h-100">
-      <div class=" rounded-3 ">
+      <div class="  inner">
       <form method="POST" action="" onsubmit="return validation()">
          
           <h3 class="text-center mt-5">Authenticate</h3>
@@ -54,7 +54,7 @@ if (isset($_POST['Login'])){
             <span id="pass" style="color:red; font-weight: bold; "></span>
 
         </div >
-        <button type="submit" name="Login"  id="bntsub"  class="btn-primary mt-5 " style=" width: 447px;" > Login</button>
+        <button type="submit" name="Login"  id="bntsub"  > Login</button>
         <div>No account? <a href="signUp.php">Sign up</a> here.</div>
       </form>
       </div>

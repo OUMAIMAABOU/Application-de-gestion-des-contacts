@@ -1,15 +1,36 @@
-.formcontainer{
-  border: thick double #32a1ce !important;
-  margin: 41px 111px !important;
-  width: 73% !important;
+body{
+  background: url(../img/bg-registration-form-7.jpg) no-repeat;
+  background-size: cover;
 }
-.bounce-img { overflow: auto;
-     margin-left: auto; 
-     margin-right: auto;
-     -webkit-animation: action 1s infinite  alternate; 
-     animation: action 1s infinite  alternate; }
+.inner {
+  max-width: 758px;
+  margin: auto;
+  background: #39459b;
+  border: 10px solid #0d99d7;
+  padding: 77px 99px 87px;
+  margin-top: 60px;
+  }
 
-     @keyframes fa-spin { 0% { -webkit-transform: rotate(0deg);
-        transform: rotate(0deg); }
-      100% { -webkit-transform: rotate(359deg);
-        transform: rotate(359deg); } }
+button {
+  border: none;
+  width: 162px;
+  height: 51px;
+  border: 2px solid #fff;
+  margin: auto;
+  margin-top: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Montserrat-SemiBold";
+ 
+  
+ } 
+  button:hover {
+   background-color: #34aee29f;
+    }
+  
