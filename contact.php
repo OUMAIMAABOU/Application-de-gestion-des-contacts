@@ -73,7 +73,7 @@ class contact extends Dbconnect
     public function SetTelephone($telephone)
     { 
       if($telephone==null){
-        $this->telephone="+(212)600000000";
+        $this->telephone="0600000000";
        }else{
         $this->telephone=$telephone;
     }

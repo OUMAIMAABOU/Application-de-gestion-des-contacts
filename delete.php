@@ -53,21 +53,21 @@ if(isset($_GET['id'])){
               <form class="form-container" action="" method="POST" onsubmit="return validation()">  
                 <div class="mb-3 " >
                 <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" value="<?php echo $rows['nom']; ?>" />
+                <input type="text" class="form-control" id="nom" style="width: 366px;" name="nom" placeholder="Enter name" value="<?php echo $rows['nom']; ?>" />
                 <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
                 <span id="nomid" style="color:red; font-weight: bold;"></span>
               </div>
 
                   <div class="mb-3"  >
                     <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="<?php echo $rows['tele']; ?>" >
+                    <input type="text" class="form-control" id="phone" style="width: 366px;"  name="phone" placeholder="Enter phone" value="<?php echo $rows['tele']; ?>" >
                     <p id="img2" style="margin-bottom: -1rem;"></p>
                     <span id="phoneid"style="color:red; font-weight: bold;"></span>
                   </div>
               
                   <div class="mb-3"  >
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email"  value="<?php echo $rows['email']; ?>" >
+                    <input type="text" class="form-control" id="email" name="email" style="width: 366px;"  placeholder="Enter email"  value="<?php echo $rows['email']; ?>" >
                     <p id="img3" style="margin-bottom: -1rem;"></p>
                     <span id="mailid" style="color:red; font-weight: bold;"></span>
                   </div>
@@ -75,13 +75,13 @@ if(isset($_GET['id'])){
                 <div class="mb-3"  >
                   <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                   <span id="addressid"  class="text-danger"></span>
-                  <input type="text" class="form-control" id="adress" name="adres" rows="3"  value="<?php echo $rows['adress']; ?>" >
+                  <input type="text" class="form-control" id="adress" name="adres" style="width: 366px;"   value="<?php echo $rows['adress']; ?>" >
                   <p id="img4" style="margin-bottom: -1rem;"></p>
                     <span id="addid" style="color:red; font-weight: bold;"></span>
                 </div>
                 
                 <div class="col-auto">
-                  <button type="submit" name="update" class="btn btn-primary mt-3">Save</button>
+                  <button type="submit" name="update" class="btn btn-primary mt-3">Update</button>
                 </div>
 
             </div>
