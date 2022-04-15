@@ -1,5 +1,5 @@
 <?php 
-include('contact.php');
+require_once('model/contact.php');
 session_start();
 if(empty($_SESSION["name"]))
 {

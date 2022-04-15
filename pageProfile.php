@@ -1,5 +1,5 @@
 <?php
-include('user.php');
+require_once('model/user.php');
 session_start();
 if(empty($_SESSION["name"]))
 {

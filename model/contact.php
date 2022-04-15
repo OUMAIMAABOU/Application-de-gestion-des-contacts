@@ -1,5 +1,5 @@
 <?php
-include('dbconnect.php');
+require_once('dbconnect.php');
 class contact extends Dbconnect
 {
     public $nom;
@@ -15,8 +15,8 @@ class contact extends Dbconnect
     public function Select()
     {
      try{
-      $req="select * from contacts where id =?";
-      $result= $this->GetData($req);
+      
+      $result= $this->GetData("select * from contacts where id =?");
       $result->execute([$this->id ]);
       return $result->fetchAll();   
       }catch(Exception $e){
@@ -26,8 +26,8 @@ class contact extends Dbconnect
     public function Selectone()
     {
      try{
-       $req="select * from contacts where idcontact =?";
-       $result= $this->GetData($req);
+      
+       $result= $this->GetData("select * from contacts where idcontact =?");
        $result->execute([$this->idcontact ]);
        return $result->fetch();
       } catch(Exception $e){
@@ -38,8 +38,8 @@ class contact extends Dbconnect
     public function Add()
     {
      try{
-      $req ="insert into contacts(nom, tele,email,adress,id) values (?,?,?,?,?) ";
-      $exc =$this->GetData($req);
+     
+      $exc =$this->GetData("insert into contacts(nom, tele,email,adress,id) values (?,?,?,?,?) ");
       $exc->execute([$this->nom,$this->telephone, $this->email,$this->adress,$this->id]);
       return $exc;
       }catch(Exception $e){
@@ -48,8 +48,8 @@ class contact extends Dbconnect
     }
     public function Delet(){
       try{
-        $req ="delete from contacts where idcontact  =?";
-        $exc =$this->GetData($req);
+      
+        $exc =$this->GetData("delete from contacts where idcontact  =?");
         $exc->execute([$this->idcontact]);
         return $exc;
       }catch(Exception $e){
@@ -58,8 +58,8 @@ class contact extends Dbconnect
     }
     public function update(){
      try{
-        $req ="update contacts set nom=?,tele=?,email=?,adress=?  where idcontact =?";
-        $exc =$this->GetData($req);
+       
+        $exc =$this->GetData("update contacts set nom=?,tele=?,email=?,adress=?  where idcontact =?");
         $exc->execute([$this->nom ,$this->telephone, $this->email,$this->adress,$this->idcontact]);
         return $exc;
       }catch(Exception $e){
@@ -101,8 +101,6 @@ class contact extends Dbconnect
 
 }
   
-// $user = new contact();
 
-// $user->select(1);
 
 ?>

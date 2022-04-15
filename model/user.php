@@ -1,5 +1,5 @@
 <?php
-include('dbconnect.php');
+require_once('dbconnect.php');
 class Utilisateur extends Dbconnect{
  public $name;
  public $password;
@@ -7,8 +7,8 @@ class Utilisateur extends Dbconnect{
  public $id;
 
  public function getuser(){
-  $req ="select * from comptes where name =?";
-  $result= $this->GetData($req);
+  
+  $result= $this->GetData("select * from comptes where name =?");
   $result->execute([$this->name]);
   return $result;
  }
@@ -18,10 +18,9 @@ class Utilisateur extends Dbconnect{
        $numrows=$this->getuser();
       if($numrows->rowCount()>0){
         return false;
-        // $_SESSION['exsit']= "user exist deja";
       }else{
-        $req ="insert into comptes (name, password,date_inscription) values (?,?,sysdate())";
-        $exc =$this->GetData($req);
+       
+        $exc =$this->GetData("insert into comptes (name, password,date_inscription) values (?,?,sysdate())");
         $this->password = password_hash( $this->password, PASSWORD_DEFAULT);
         $exc->execute([$this->name,$this->password]); 
         return true;
@@ -48,8 +47,8 @@ class Utilisateur extends Dbconnect{
     {
       try
       {
-        $req="select * from comptes where idcompte =?";
-        $result= $this->GetData($req);
+        
+        $result= $this->GetData("select * from comptes where idcompte =?");
         $result->execute([$this->id]);
         return $result->fetchAll();
       }catch (Exception $ex) { echo $ex->getMessage();}

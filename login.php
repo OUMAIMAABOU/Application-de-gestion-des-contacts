@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('user.php');
+require_once('model/user.php');
 
 $error = "";
 $username=null;
