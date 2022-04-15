@@ -8,7 +8,10 @@ class contact extends Dbconnect
     public $adress;
     public $id;
     public $idcontact;
-
+   
+     
+    
+   
     public function Select()
     {
      try{
@@ -26,7 +29,7 @@ class contact extends Dbconnect
        $req="select * from contacts where idcontact =?";
        $result= $this->GetData($req);
        $result->execute([$this->idcontact ]);
-       return $result->fetchAll();
+       return $result->fetch();
       } catch(Exception $e){
         return $e->getMessage();
       }  
@@ -68,8 +71,12 @@ class contact extends Dbconnect
         $this->nom=$nom;
     }
     public function SetTelephone($telephone)
-    {
+    { 
+      if($telephone==null){
+        $this->telephone="+(212)600000000";
+       }else{
         $this->telephone=$telephone;
+    }
     }
     public function SetEmai($email)
     {
@@ -77,8 +84,12 @@ class contact extends Dbconnect
     }
     public function SetAdress($adress)
     {
-       $this->adress=$adress;
+      if($adress==null){
+        $this->adress="Exemple@gmail.com";
+       }else{
+        $this->adress=$adress;
     }
+  }
     public function SetId($id)
     {
        $this->id=$id;

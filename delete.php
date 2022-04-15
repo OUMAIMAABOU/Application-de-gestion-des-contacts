@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
       $con->SetIdcontact($_GET['id']);
       
       
-      $res=$con->Selectone();
+      $rows=$con->Selectone();
       if(isset($_POST['update'])){
           $con->SetName($_POST['nom']);
           $con->SetTelephone($_POST['phone']);
@@ -28,7 +28,7 @@ if(isset($_GET['id'])){
           $con->SetAdress($_POST['adres']);
           if($con->update())  header("Location: pagecontact.php");
       }
-      $rows=$res[0];?>
+      ?>
   <!DOCTYPE html>
   <html>
       <head>

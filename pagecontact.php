@@ -72,24 +72,25 @@ Add Contact
                 <label for="exampleFormControlInput1" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name">
                 <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
-                <span id="nomid" style="color:red; font-weight: bold;"></span>
+                <span id="nomid" class ="mt-5 text-danger"style="font-weight: bold;"></span>
             </div>
+            <div class="mb-3"  >
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+                    <p id="img3" style="margin-bottom: -1rem;"></p>
+                    <span id="mailid" class ="mt-5 text-danger"style="font-weight: bold;"></span>
+                </div>
                 <div class="mb-3"  >
                     <label for="exampleFormControlInput1" class="form-label">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone">
                     <p id="img2" style="margin-bottom: -1rem;"></p>
-                    <span id="phoneid"style="color:red; font-weight: bold;"></span>
+                    <span id="phoneid" style="color:red; font-weight: bold;"></span>
                 </div>
             
-                <div class="mb-3"  >
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
-                    <p id="img3" style="margin-bottom: -1rem;"></p>
-                    <span id="mailid" style="color:red; font-weight: bold;"></span>
-                </div>
+            
                 <div class="mb-3" >
                 <label for="exampleFormControlTextarea1" class="form-label">Address</label>
-                <span id="addressid"  class="text-danger"></span>
+                <span id="addressid"  class ="mt-5 text-danger"style="font-weight: bold;"></span>
                 <textarea class="form-control" id="adress" name="adres" rows="3"></textarea>
                 <p id="img4" style="margin-bottom: -1rem;"></p> <span id="addid" style="color:red; font-weight: bold;"></span></div>
                 <div class="modal-footer">

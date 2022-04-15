@@ -58,8 +58,8 @@ if (isset($_POST['Login'])){
             <span id="pass" style="color:red; font-weight: bold; "></span>
            </div >
           <div class="mt-5">  
-            <input type="checkbox" onclick="myFunction()"  />  
-            <label for="remember-me">Show me password </label>  
+            <input type="checkbox" name ="check" onclick="myFunction()"  />  
+            <label  class =" text-center text-light" for="check">Show me password </label>  
           </div> 
 
         <button type="submit" name="Login"  id="bntsub"  > Login</button>
@@ -67,6 +67,16 @@ if (isset($_POST['Login'])){
       </form>
       </div>
       </div>
+      <script>
+  function myFunction() {
+  if (document.getElementById("password").type === "password") {
+    document.getElementById("password").type = "text";
+  } else {
+    document.getElementById("password").type = "password";
+  }
+}
+</script>
+
       <script src="js/login.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2X.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
