@@ -18,14 +18,10 @@ if(isset($_GET['id'])){
     
       $con = new contact();
       $con->SetIdcontact($_GET['id']);
-      
-      
+
       $rows=$con->Selectone();
       if(isset($_POST['update'])){
-          $con->SetName($_POST['nom']);
-          $con->SetTelephone($_POST['phone']);
-          $con->SetEmai($_POST['email']);
-          $con->SetAdress($_POST['adres']);
+          $con->setadd($_POST['nom'],$_POST['email'],$_POST['phone'],$_POST['adres'],"");
           if($con->update())  header("Location: pagecontact.php");
       }
       ?>

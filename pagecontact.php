@@ -1,28 +1,17 @@
 <?php 
-require_once('model/contact.php');
-session_start();
-if(empty($_SESSION["name"]))
-{
-        header('location:login.php');
-    }
+  require_once('model/contact.php');
+  session_start();
+  if(empty($_SESSION["name"]))header('location:login.php');
   $con = new contact();
   $con->SetId($_SESSION['id']);
   $res=$con->Select();
-  if (isset($_POST['save'])){
-  
-    $con->SetName($_POST['nom']);
-    $con->SetTelephone($_POST['phone']);
-    $con->SetEmai($_POST['email']);
-    $con->SetAdress($_POST['adres']);
-    $con->SetId($_SESSION['id']);
-  
-     if($con->Add()){
-        header("Location: pagecontact.php");
-     }else{
-      $error = "incorect username or password !!";
-        
-     }
-    }
+  if (isset($_POST['save']))
+  {
+    $con->setadd($_POST['nom'],$_POST['email'],$_POST['phone'],$_POST['adres'],$_SESSION['id']);
+    if($con->Add())header("Location: pagecontact.php");
+    else $error = "incorect username or password !!";
+  }
+   
 
 ?>
 <!DOCTYPE html>

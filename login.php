@@ -9,6 +9,11 @@ $user = new Utilisateur();
 if (isset($_POST['Login'])){
   $username=$_POST['username'];
   $pass=$_POST['password'];
+  if(!empty($_POST['username']) && !empty($_POST['password'])){
+  
+      if (preg_match('/\"|\#|\'|\*/',  $username)||preg_match('/\"|\#|\'|\*/',  $pass)||!preg_match('/[a-zA-Z]{3,20}/',  $username)|| strlen($pass)<6){
+        $error= "le format de text invalide";
+}else{
   $user->SetName($_POST['username']);
   $user->SetPassword($_POST['password']);
   if($user->login()){
@@ -16,6 +21,12 @@ if (isset($_POST['Login'])){
   }else{
     $error = "incorect username or password ";
   }
+}
+
+  }else{
+    $error ="Remplir les chemps";
+  }
+ 
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +48,7 @@ if (isset($_POST['Login'])){
       </nav> 
 <div  class="d-flex justify-content-center align-items-center h-100">
       <div class="  inner">
-      <form method="POST" action="" onsubmit="return validation()">
+      <form method="POST" action="" >
          
           <h3 class="text-center text-light mt-5">Authenticate</h3>
           <?php if($error != ""){ ?>

@@ -23,7 +23,7 @@ class Utilisateur extends Dbconnect{
         $exc =$this->GetData("insert into comptes (name, password,date_inscription) values (?,?,sysdate())");
         $this->password = password_hash( $this->password, PASSWORD_DEFAULT);
         $exc->execute([$this->name,$this->password]); 
-        return true;
+        return $exc;
       }
      
       }catch (Exception $ex) { echo $ex->getMessage();}  
@@ -33,7 +33,7 @@ class Utilisateur extends Dbconnect{
     try{
     $numrows=$this->getuser();
     $res=$numrows->fetch(PDO::FETCH_ASSOC);
-    if(password_verify($this->password,$res['password'])==true)
+    if(password_verify($this->password,$res['password']))
     {
         $_SESSION['name'] = $res['name'];
         $_SESSION['date'] = $res['date_inscription'];

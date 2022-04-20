@@ -8,22 +8,20 @@ class Dbconnect{
   protected function connection()
   {
     try
-    {
-     $con= new PDO("mysql:host=$this->host; dbname=$this->database" ,$this->username ,$this->password);      
-     return $con;
-    }catch (Exception $ex) { echo $ex->getMessage();}
+    {   
+     return new PDO("mysql:host=$this->host; dbname=$this->database" ,$this->username ,$this->password);;
+    }catch (PDOException $ex) { echo $ex->getMessage();}
   }
 
-  protected function GetData($req){
+  protected function GetData($req)
+  {
     try
     {
-    $sql=$this->connection()->prepare($req);
-    return $sql; 
-    }catch (Exception $ex) {echo $ex->getMessage();}
+    return $this->connection()->prepare($req);; 
+    }catch (PDOException $ex) {echo $ex->getMessage();}
   }
    
   
 }
-// $conn=new Dbconnect();
-// $conn->connection();
+
 ?> 
