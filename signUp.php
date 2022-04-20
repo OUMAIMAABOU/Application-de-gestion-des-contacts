@@ -13,6 +13,7 @@ if (isset($_POST['signup'])){
   $cpass= $_POST['cpassword'];
   $user->SetName($_POST['username']);
   $user->SetPassword($_POST['password']);
+  $user->Setimg($_FILES['image']['name']);
   if($user->add()){
     header("Location: login.php");
   }else{
@@ -52,7 +53,7 @@ if (isset($_POST['signup'])){
                         <?php echo $errmsg; ?>
                     </div>
                 <?php   $errmsg = null;  } ?>
-            <form method="post" action="" onsubmit="return validation()"> 
+            <form method="post" action="" onsubmit="return validation()" enctype="multipart/form-data"> 
                 <div class="mb-3 ">
                   <label for="username" class="form-label mt-4" style="color: #fff;font-size: large;">Username</label>
                   <input type="text" class="form-control" id="username" name="username" value="<?php echo  $username;?>" placeholder="Username" style=" padding: 11px ;width: 447px;" >
@@ -71,6 +72,10 @@ if (isset($_POST['signup'])){
                   <p id="img22"  style="margin-bottom: -1rem;"></p>
                   <span id="pass2" style="color:red; font-weight: bold; "></span>
                 </div>
+                <div class="mb-3 ">
+                  <label for="password" class="form-label mt-4" style="color: #fff;font-size: large;">Image</label>
+                  <input type="file" name="image" >
+                </div>
        
                  <button type="submit" class="mt-5"  name ="signup" style=" width: 447px;">Sign up</button>
                  <div class="mt-3 mb-3 text-center">
@@ -84,3 +89,32 @@ if (isset($_POST['signup'])){
       <script src="js/login.js"></script>
 </body>
 </html>
+<?php
+
+   if(isset($_FILES['image'])){
+      $errors= array();
+      $file_name = $_FILES['image']['name'];
+      $file_size =$_FILES['image']['size'];
+      $file_tmp =$_FILES['image']['tmp_name'];
+      $file_type=$_FILES['image']['type'];
+      $fileexplode =explode('.',$file_name);
+      $file_ext=strtolower(end($fileexplode));
+      
+      $extensions= array("jpeg","jpg","png");
+      
+      if(in_array($file_ext,$extensions)=== false){
+         $errors="extension not allowed, please choose a JPEG or PNG file.";
+      }
+      
+      if($file_size > 2097152){
+         $errors='File size must be excately 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"img/avatar/".$file_name);
+         echo "Success";
+      }else{
+         print_r($errors);
+      }
+   }
+?>

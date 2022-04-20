@@ -5,6 +5,7 @@ class Utilisateur extends Dbconnect{
  public $password;
  public $dateinsc;
  public $id;
+ public $img;
 
  public function getuser()
  {
@@ -23,9 +24,9 @@ class Utilisateur extends Dbconnect{
        return false;
       }else{
        
-        $exc =$this->GetData("insert into comptes (name, password,date_inscription) values (?,?,sysdate())");
+        $exc =$this->GetData("insert into comptes (name, password,date_inscription,img) values (?,?,sysdate(),?)");
         $this->password = password_hash( $this->password, PASSWORD_DEFAULT);
-        $exc->execute([$this->name,$this->password]); 
+        $exc->execute([$this->name,$this->password,$this->img]); 
         return $exc;
       }
      
@@ -58,7 +59,11 @@ class Utilisateur extends Dbconnect{
   public function SetName($name){$this->name=$name;}
   public function SetPassword($password){$this->password=$password;}
   public function SetId($id){$this->id=$id;} 
-}
+  public function Setimg($img)
+  {
+    if($img=="") $this->img="avatar.png";
+    else  $this->img=$img;} 
+  }
 
 
 
