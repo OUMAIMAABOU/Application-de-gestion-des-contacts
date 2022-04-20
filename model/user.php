@@ -6,18 +6,21 @@ class Utilisateur extends Dbconnect{
  public $dateinsc;
  public $id;
 
- public function getuser(){
-  
-  $result= $this->GetData("select * from comptes where name =?");
-  $result->execute([$this->name]);
-  return $result;
- }
-    public function add()
+ public function getuser()
+ {
+    try
     {
+      $result= $this->GetData("select * from comptes where name =?");
+      $result->execute([$this->name]);
+      return $result;
+    }catch (PDOException $ex) { echo $ex->getMessage();}  
+ }
+  public function add()
+  {
      try{
        $numrows=$this->getuser();
-      if($numrows->rowCount()>0){
-        return false;
+       if($numrows->rowCount()>0){
+       return false;
       }else{
        
         $exc =$this->GetData("insert into comptes (name, password,date_inscription) values (?,?,sysdate())");
@@ -27,13 +30,13 @@ class Utilisateur extends Dbconnect{
       }
      
       }catch (Exception $ex) { echo $ex->getMessage();}  
-    }
-   public function login()
+  }
+  public function login()
    {
     try{
     $numrows=$this->getuser();
     $res=$numrows->fetch(PDO::FETCH_ASSOC);
-    if(password_verify($this->password,$res['password']))
+    if(password_verify($this->password,$res['password'])==true)
     {
         $_SESSION['name'] = $res['name'];
         $_SESSION['date'] = $res['date_inscription'];
@@ -41,18 +44,17 @@ class Utilisateur extends Dbconnect{
         $_SESSION['datelog']= date('d-m-y h:i:s');
         return $res;
     }
-    }catch (Exception $ex) { echo $ex->getMessage();}    
-   }
-    public function Select()
-    {
+    }catch (PDOException $ex) { echo $ex->getMessage();}    
+  }
+  public function Select()
+  {
       try
       {
-        
         $result= $this->GetData("select * from comptes where idcompte =?");
         $result->execute([$this->id]);
         return $result->fetchAll();
-      }catch (Exception $ex) { echo $ex->getMessage();}
-    }
+      }catch (PDOException $ex) { echo $ex->getMessage();}
+  }
   public function SetName($name){$this->name=$name;}
   public function SetPassword($password){$this->password=$password;}
   public function SetId($id){$this->id=$id;} 
