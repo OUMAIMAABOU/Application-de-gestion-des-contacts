@@ -22,7 +22,7 @@ function validation(){
     }else if (nom.value!=="") {
         nom.style.borderColor='green';
         nom.style.borderWidth='3px'
-        img.innerHTML='<img src="img/checked.png" style=" POSITION: RELATIVE;bottom: 40px; left: 334px; width:20px;">'
+        img.innerHTML='<img src="img/checked.png" style=" POSITION: RELATIVE;bottom:70px; left: 334px; width:24px;">'
         nomid.innerHTML="";
     }
 

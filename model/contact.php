@@ -1,6 +1,6 @@
 <?php
 require_once('dbconnect.php');
-class contact extends Dbconnect
+class Contact extends Dbconnect
 {
     public $nom;
     public $telephone;
@@ -68,7 +68,7 @@ class contact extends Dbconnect
       else $this->telephone=$telephone;
       if($adress==null)
       {
-       $this->adress="Exemple@gmail.com";
+       $this->adress="NBR AVENUE DE EXEMPLE";
       }
       else $this->adress=$adress;
       $this->id=$id;

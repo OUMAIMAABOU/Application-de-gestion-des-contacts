@@ -13,9 +13,6 @@ if(isset($_GET['id'])){
         
 
     }else if($_GET['req']=='update'){
- 
-       
-    
       $con = new contact();
       $con->SetIdcontact($_GET['id']);
 
@@ -23,7 +20,7 @@ if(isset($_GET['id'])){
       if(isset($_POST['update'])){
           $con->setadd($_POST['nom'],$_POST['email'],$_POST['phone'],$_POST['adres'],"");
           if($con->update())  header("Location: pagecontact.php");
-      }
+      } 
       ?>
   <!DOCTYPE html>
   <html>
@@ -37,7 +34,8 @@ if(isset($_GET['id'])){
       <body>
         
       <main>
-          <div class="container" >
+     
+          <div class="container mt-5" >
             <div class="content" style="margin-left: 16%;">
                 <div><h1>Contacts</h1></div>
               <div class="list">

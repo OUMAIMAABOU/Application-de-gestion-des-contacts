@@ -42,6 +42,7 @@ class Utilisateur extends Dbconnect{
         $_SESSION['name'] = $res['name'];
         $_SESSION['date'] = $res['date_inscription'];
         $_SESSION['id'] = $res['idcompte'];
+        $_SESSION['img']=$res['img'];
         $_SESSION['datelog']= date('d-m-y h:i:s');
         return $res;
     }

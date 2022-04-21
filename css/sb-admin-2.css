@@ -1,0 +1,85 @@
+
+
+
+
+
+
+
+
+.dropup,
+.dropright,
+.dropdown,
+.dropleft {
+  position: relative;
+}
+
+
+
+
+
+
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+ 
+ 
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.25rem 1.5rem;
+  color: #3a3b45;
+  text-align: inherit;
+  white-space: nowrap;
+  padding: 2px 5px;
+
+}
+
+.dropdown-menu.show {
+  display: block;
+  margin-left: -72px;
+  margin-top: -19px;
+
+}
+li{
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
