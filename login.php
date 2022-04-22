@@ -17,7 +17,7 @@ if (isset($_POST['Login'])){
   $user->SetName($_POST['username']);
   $user->SetPassword($_POST['password']);
   if($user->login()){
-  header("Location: pageProfile.php");
+  header("Location: pagecontact.php");
   }else{
     $error = "incorect username or password ";
   }

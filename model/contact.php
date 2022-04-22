@@ -16,7 +16,7 @@ class Contact extends Dbconnect
     {
      try
      {
-      $result= $this->GetData("select * from contacts where id =?");
+      $result= $this->GetData("select * from contacts where id =?  ORDER BY idcontact desc");
       $result->execute([$this->id ]);
       return $result->fetchAll();   
       }catch(PDOException $e){return $e->getMessage();}
@@ -68,7 +68,7 @@ class Contact extends Dbconnect
       else $this->telephone=$telephone;
       if($adress==null)
       {
-       $this->adress="NBR AVENUE DE EXEMPLE";
+       $this->adress="NR AVENUE DE EXEMPLE";
       }
       else $this->adress=$adress;
       $this->id=$id;

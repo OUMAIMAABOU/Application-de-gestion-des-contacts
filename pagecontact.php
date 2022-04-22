@@ -8,7 +8,7 @@
   if (isset($_POST['save']))
   {
     $con->setadd($_POST['nom'],$_POST['email'],$_POST['phone'],$_POST['adres'],$_SESSION['id']);
-    if($con->Add())header("Location: pagecontact.php");
+    if($con->Add())header('location:pagecontact.php');
     else $error = "incorect username or password !!";
   }
    
@@ -90,21 +90,37 @@
      </div>
     <div class="table-responsive mt-3 mx-3">
         <div class=" table-responsive-sm table-responsive-md ">
-            <table class="table table table-dark table-borderless table-hover  col-11X ">
-                <tr>
-                    <?php foreach($res as $rows){?>
-                    <td><?= $rows['nom']; ?></td>
-                    <th><?= $rows['email']; ?></th>
-                    <td><?= $rows['tele']; ?></td>
-                    <td><?= $rows['adress']; ?></td>
-                    <td> <button class="btn btn-primary" ><a class ="text-light  text-decoration-none fs-5" href="delete.php?id=<?= $rows['idcontact']?>&req=update">Edit</a></button>
-                    <button class="btn btn-primary" ><a  class ="text-light  text-decoration-none fs-5" href="delete.php?id=<?= $rows['idcontact']?>&req=delete"> Delete</a></button></td>
-                  </tr>
-                 <?php } ;?>
-          </table>
+            <table class="table">
+                <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Gmail</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($res as $key=> $rows){?>
+                        <tr>
+                        <th scope="row"> <?=  $key+1; ?></th>
+                        <td><?= $rows['nom']; ?></td>
+                        <td><?= $rows['email']; ?></td>
+                        <td><?= $rows['tele']; ?></td>
+                        <td><?= $rows['adress']; ?></td>
+                        <td><button class="btn btn-primary" ><a class ="text-light  text-decoration-none fs-5" href="delete.php?id=<?= $rows['idcontact']?>&req=update"  >Edit</a></button></td>
+                        <td><button class="btn btn-primary" ><a  class ="text-light  text-decoration-none fs-5" href="delete.php?id=<?= $rows['idcontact']?>&req=delete" onclick="if(window.confirm('Voulez-vous vraiment supprimer ?')){return true;}else{return false;}"> Delete</a></button></td>
+                        </tr>
+                        <?php } ;?>
+                    </tbody>
+            </table>
      </div>
     </div>
    </div>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="js/validation.js"> </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>

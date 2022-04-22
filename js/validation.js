@@ -73,7 +73,7 @@ function validation(){
 
        function validatphone()
         {
-          var regxp =/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+          var regxp =/^[+]?[(]?[0-9]{3}[)]?[0-9]{3}?[0-9]{4,6}$/;
           return regxp.test(phone.value);
         }
     }
